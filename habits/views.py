@@ -9,12 +9,11 @@ from habits.serializers import HabitsSerializer
 class HabitCreateAPIView(generics.CreateAPIView):
     """Создание привычки"""
     serializer_class = HabitsSerializer
-    queryset = Habit.objects.all()
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsOwner]
 
     def perform_create(self, serializer):
         new_habit = serializer.save()
-        new_habit.owner = self.request.user
+        new_habit.author = self.request.user
         new_habit.save()
 
 
