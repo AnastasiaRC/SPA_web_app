@@ -7,22 +7,16 @@
 
 Для работы программы необходимо:
 
-1. Склонировать репозиторий в PyCharm (команда: git clone https://github.com/AnastasiaRC/SPA_web_app.git)
-2. Установить зависимости, из файла requirements.txt
-3. Заполнить файл .env своими данными
-4. В файле settings.py необходимо указать адреса frontend-серверов в разделе CORS
-5. Cоздайте миграции: python manage.py makemigrations
-6. Примените миграции: python manage.py migrate
-7. Запустить программу python manage.py runserver
-8. Запустить задачу для отправки писем:
- - celery -A config worker -l info
- - celery -A config beat -l info -S django
+1. Заполнить файл.env своими данными (на примере файла .env.sample)
+2. В файле settings.py указать адреса frontend-серверов
+3. Установить Docker и запустить команды:
+- docker-compose up -d --build
+- docker exec SPA_wed_app python manage.py csu
 
 Описание приложения:
 
 - habits - создание, управление привычками и вознаграждениями, местами выполнения
 - users - регистрация и авторизацию пользователей
-
 
 Токен для телеграмм бота можно получить с помощью главного бота по этой ссылке: «https://t.me/BotFather».
 
